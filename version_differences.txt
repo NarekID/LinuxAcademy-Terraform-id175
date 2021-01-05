@@ -1,0 +1,44 @@
+==================================================
+11
+image = "${docker_image.image_id.latest}"
+
+12 13 14
+image = docker_image.image_id.latest
+==================================================
+
+
+
+==================OUTPUTS=========================
+11
+output "IP Address" {
+  value = "${docker_container.container_id.name}"
+}
+
+12 13 14
+output "ip_address" { (*)
+  value = docker_container.container_id.ip_address
+}
+* A name must start with a letter or underscore and may contain only letters, digits, underscores, and dashes.
+============================================
+
+
+
+=================DOCKER PROVIDER========================
+11 12
+support by default
+
+13 14
+Error: Failed to install providers
+
+Could not find required providers, but found possible alternatives:
+
+  hashicorp/docker -> kreuzwerker/docker
+
+If these suggestions look correct, upgrade your configuration with the
+following command:
+    terraform 0.13upgrade .
+=======================================================
+
+
+
+=======================================
